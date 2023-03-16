@@ -4,7 +4,7 @@
 @homepageURL    https://github.com/eros404/dracula-bandcamp
 @supportURL     https://github.com/eros404/dracula-bandcamp/issues
 @updateURL      https://github.com/eros404/dracula-bandcamp/raw/main/style.user.css
-@version        0.1.1
+@version        0.1.2
 @description    A dark mode for Bandcamp
 @author         Eros404
 @preprocessor   less
@@ -15,10 +15,21 @@
 @dark: #343746;
 @black-200: #5c6071;
 @white: #f3f4fb;
-@bc-blue: #42A0BD;
+@blue-050: #5f4a7d;
+@blue-100: #715895;
+@blue-200: #8467ae;
+@blue-300: #9776c7;
+@blue-400: #aa84e0;
+@blue-500: #bd93f9;
+@blue-600: #c49efa;
+@blue-700: #d7befb;
+@blue-800: #e5d4fd;
+@blue-900: #f2e9fe;
 
 @-moz-document url-prefix("https://bandcamp.com"),
 url-prefix("http://bandcamp.com") {
+
+    /* Body */
     body {
         background-color: @darker;
         color: @white;
@@ -36,7 +47,7 @@ url-prefix("http://bandcamp.com") {
         .hoverable:hover,
         .hoverable:focus,
         .notification-center-menubar-button a:focus {
-            background-color: @bc-blue;
+            background-color: @blue-600;
         }
     }
 
@@ -63,11 +74,36 @@ url-prefix("http://bandcamp.com") {
                 }
             }
         }
+
+        &.has-results:not(.pending) ul.filter-list .filter-link:not(.selected-filter):hover {
+            border-bottom-color: @blue-600;
+        }
     }
 
-    body.search-active form.menubar-search.has-results ul.filter-list .filter-link.selected-filter {
-        color: @white;
-        border-bottom-color: @white;
+    body.search-active form.menubar-search.has-results ul.filter-list .filter-link {
+        color: @blue-600;
+
+        &.selected-filter {
+            color: @white;
+            border-bottom-color: @white;
+        }
+    }
+
+    /* Footer */
+    .pg-ft {
+        background-color: @blue-400;
+
+        &-nav .lang-picker {
+            background-color: @blue-200;
+        }
+    }
+
+    .lang-picker-content {
+        background-color: @blue-200;
+
+        li {
+            border-bottom-color: @blue-200;
+        }
     }
 
     /* Home page */
@@ -80,6 +116,46 @@ url-prefix("http://bandcamp.com") {
     #am,
     #p {
         fill: @white;
+    }
+
+    #rhomboid,
+    .stepper .icon,
+    .stepper-bcdaily .icon {
+        fill: @blue-600;
+    }
+
+    .stepper-prev,
+    .stepper-next,
+    .stepper-bcdaily {
+        color: @blue-600;
+
+        &:hover {
+            color: @blue-400;
+
+            .icon {
+                fill: @blue-400;
+            }
+        }
+    }
+
+    .salesfeed .section-title,
+    .notable .section-title,
+    .bcdaily .section-title,
+    .curated-shows .section-title,
+    .tags .section-title {
+        color: @blue-600;
+    }
+
+    .genre-bar {
+        background-color: @blue-600 !important;
+    }
+
+    .slice-bar {
+        background-color: @blue-400 !important;
+    }
+
+    .format-bar {
+        background-color: @blue-200 !important;
     }
 
     .notable,
@@ -143,6 +219,14 @@ url-prefix("http://bandcamp.com") {
         &-title {
             color: @white;
         }
+
+        .read-more {
+            color: @blue-600;
+        }
+    }
+
+    #email-intake-vm button:hover:enabled.showoff {
+        background-color: @blue-600;
     }
 
     .aotd-large {
@@ -169,7 +253,7 @@ url-prefix("http://bandcamp.com") {
 
         &:active,
         &.selected {
-            background-color: @bc-blue;
+            background-color: @blue-600;
         }
     }
 
@@ -205,6 +289,7 @@ url-prefix("http://bandcamp.com") {
 
     .item-page {
         background: none;
+        color: @blue-600;
 
         &.selected {
             color: @white;
@@ -214,6 +299,15 @@ url-prefix("http://bandcamp.com") {
     #email-intake-vm input {
         background-color: @dark;
         color: @white;
+    }
+
+    .scroller-prev,
+    .scroller-next {
+
+        &,
+        & .scroller-fade {
+            background: none !important;
+        }
     }
 
     /* Fan page */
@@ -390,7 +484,7 @@ url-prefix("http://bandcamp.com") {
             background-color: @dark;
 
             &:hover {
-                background-color: @bc-blue;
+                background-color: @blue-600;
             }
 
             &>a {
