@@ -4,17 +4,16 @@
 @homepageURL    https://github.com/eros404/dracula-bandcamp
 @supportURL     https://github.com/eros404/dracula-bandcamp/issues
 @updateURL      https://github.com/eros404/dracula-bandcamp/raw/main/style.user.css
-@version        0.1.2
+@version        0.1.3
 @description    A dark mode for Bandcamp
 @author         Eros404
 @preprocessor   less
 @license        MIT
 ==/UserStyle== */
 
-@darker: #282A36;
-@dark: #343746;
-@black-200: #5c6071;
-@white: #f3f4fb;
+@background: #282A36;
+@current-line: #44475a;
+@foreground: #f8f8f2;
 @blue-050: #5f4a7d;
 @blue-100: #715895;
 @blue-200: #8467ae;
@@ -31,78 +30,78 @@ url-prefix("http://bandcamp.com") {
 
     /* Body */
     body {
-        background-color: @darker;
-        color: @white;
+        background-color: @background;
+        color: @foreground;
     }
 
     /* Menu */
     #menubar-wrapper.header-rework-2018 .menubar-outer {
-        background-color: @dark;
-        color: @white;
+        background-color: @background;
+        color: @foreground;
     }
 
     .menubar-2018 {
-        background-color: @dark;
+        background-color: @background;
 
         .hoverable:hover,
         .hoverable:focus,
         .notification-center-menubar-button a:focus {
-            background-color: @blue-600;
+            background-color: @blue-500;
         }
     }
 
     form.menubar-search {
         input[type="text"] {
-            background-color: @darker;
-            color: @white;
+            background-color: @current-line;
+            color: @foreground;
         }
 
         ul {
-            background-color: @darker;
+            background-color: @background;
         }
 
         .search-autocomplete li:not(.results-see-all):not(.results-tags) {
             &.result-item a>span {
-                color: @white;
+                color: @foreground;
             }
 
             a {
-                background-color: @darker;
+                background-color: @background;
 
                 &:hover {
-                    background-color: @dark;
+                    background-color: @current-line;
                 }
             }
         }
 
         &.has-results:not(.pending) ul.filter-list .filter-link:not(.selected-filter):hover {
-            border-bottom-color: @blue-600;
+            border-bottom-color: @blue-500;
         }
     }
 
     body.search-active form.menubar-search.has-results ul.filter-list .filter-link {
-        color: @blue-600;
+        color: @blue-500;
 
         &.selected-filter {
-            color: @white;
-            border-bottom-color: @white;
+            color: @foreground;
+            border-bottom-color: @foreground;
         }
     }
 
     /* Footer */
     .pg-ft {
-        background-color: @blue-400;
+        background-color: @blue-300;
 
         &-nav .lang-picker {
-            background-color: @blue-200;
+            background-color: @blue-100;
         }
     }
 
     .lang-picker-content {
-        background-color: @blue-200;
+        background-color: @blue-100;
 
         li {
-            border-bottom-color: @blue-200;
+            border-bottom-color: @blue-100;
         }
     }
 
@@ -114,26 +113,27 @@ url-prefix("http://bandcamp.com") {
     #d,
     #c,
     #am,
-    #p {
-        fill: @white;
+    #p,
+    #menubar-search-input-icon {
+        fill: @foreground;
     }
 
     #rhomboid,
     .stepper .icon,
     .stepper-bcdaily .icon {
-        fill: @blue-600;
+        fill: @blue-500;
     }
 
     .stepper-prev,
     .stepper-next,
     .stepper-bcdaily {
-        color: @blue-600;
+        color: @blue-500;
 
         &:hover {
-            color: @blue-400;
+            color: @blue-300;
 
             .icon {
-                fill: @blue-400;
+                fill: @blue-300;
             }
         }
     }
@@ -143,19 +143,19 @@ url-prefix("http://bandcamp.com") {
     .bcdaily .section-title,
     .curated-shows .section-title,
     .tags .section-title {
-        color: @blue-600;
+        color: @blue-500;
     }
 
     .genre-bar {
-        background-color: @blue-600 !important;
+        background-color: @blue-500 !important;
     }
 
     .slice-bar {
-        background-color: @blue-400 !important;
+        background-color: @blue-300 !important;
     }
 
     .format-bar {
-        background-color: @blue-200 !important;
+        background-color: @blue-100 !important;
     }
 
     .notable,
@@ -164,41 +164,41 @@ url-prefix("http://bandcamp.com") {
     .email-intake,
     .discover,
     .app-promo-desktop {
-        background-color: @darker;
+        background-color: @background;
     }
 
     .salesfeed .item-inner {
-        color: @white;
+        color: @foreground;
 
         &:hover {
-            background-color: @dark;
+            background-color: @current-line;
         }
     }
 
     .carousel-bcweekly-container-container {
-        background-color: @darker;
+        background-color: @background;
     }
 
     .notable-item {
-        background-color: @dark;
+        background-color: @current-line;
     }
 
     .item-title>a {
-        color: @white;
+        color: @foreground;
     }
 
     .item-collection-controls>li a {
-        color: @white;
+        color: @foreground;
     }
 
     .live-listing {
-        background-color: @dark;
+        background-color: @current-line;
 
         .show-details {
 
             .show-title,
             .show-artist {
-                color: @white;
+                color: @foreground;
             }
         }
     }
@@ -207,53 +207,57 @@ url-prefix("http://bandcamp.com") {
 
         .show-date,
         .show-time {
-            color: @white;
+            color: @foreground;
         }
     }
 
     .bcdaily {
         .bcdaily-story {
-            background-color: @dark;
+            background-color: @current-line;
         }
 
         &-title {
-            color: @white;
+            color: @foreground;
         }
 
         .read-more {
-            color: @blue-600;
+            color: @blue-500;
+        }
+
+        .section-title a {
+            color: @blue-500;
         }
     }
 
     #email-intake-vm button:hover:enabled.showoff {
-        background-color: @blue-600;
+        background-color: @blue-500;
     }
 
     .aotd-large {
-        background-color: @dark;
+        background-color: @current-line;
 
         .bcdaily-title,
         .aotd-artist,
         .bcdaily-blurb {
-            color: @white;
+            color: @foreground;
         }
     }
 
     #email-intake-vm p {
-        color: @white;
+        color: @foreground;
     }
 
     .discover .section-title,
     .spotlight .section-title,
     .signups .section-title {
-        color: @white;
+        color: @foreground;
     }
 
     .section-title a {
 
         &:active,
         &.selected {
-            background-color: @blue-600;
+            background-color: @blue-500;
         }
     }
 
@@ -262,43 +266,43 @@ url-prefix("http://bandcamp.com") {
         &.item-title,
         &.item-artist,
         &.item-genre {
-            color: @white;
+            color: @foreground;
         }
     }
 
     .discover-detail {
-        background-color: @dark;
+        background-color: @current-line;
     }
 
     .discover .detail-body a {
-        color: @white
+        color: @foreground
     }
 
     .inline_player .playbutton {
-        background-color: @dark;
+        background-color: @current-line;
 
         &::after {
-            border-left-color: @white;
+            border-left-color: @foreground;
         }
 
         &.playing::after {
-            border-left-color: @white;
-            border-right-color: @white;
+            border-left-color: @foreground;
+            border-right-color: @foreground;
         }
     }
 
     .item-page {
         background: none;
-        color: @blue-600;
+        color: @blue-500;
 
         &.selected {
-            color: @white;
+            color: @foreground;
         }
     }
 
     #email-intake-vm input {
-        background-color: @dark;
-        color: @white;
+        background-color: @current-line;
+        color: @foreground;
     }
 
     .scroller-prev,
@@ -313,11 +317,11 @@ url-prefix("http://bandcamp.com") {
     /* Fan page */
     #propOpenWrapper,
     #pgBd {
-        background-color: @darker;
+        background-color: @background;
     }
 
     .fan-bio {
-        color: @white;
+        color: @foreground;
     }
 
     .grids {
@@ -327,44 +331,44 @@ url-prefix("http://bandcamp.com") {
 
             &,
             &:hover {
-                color: @white;
-                border-bottom-color: @white;
+                color: @foreground;
+                border-bottom-color: @foreground;
             }
         }
 
         .search .search-box {
-            background-color: @dark;
-            color: @white;
+            background-color: @current-line;
+            color: @foreground;
         }
     }
 
     select.fav-track,
     #wishlist-visibility,
     #following-genre-visibility {
-        background-color: @dark;
-        color: @white;
+        background-color: @current-line;
+        color: @foreground;
         border: 1px solid #ccc;
     }
 
     .why-edit-box textarea {
-        background-color: @dark;
-        color: @white;
+        background-color: @current-line;
+        color: @foreground;
         box-shadow: none;
     }
 
     #grid-tabs-sticky.fixed {
-        background-color: @darker;
+        background-color: @background;
     }
 
     .item-link {
-        color: @white;
+        color: @foreground;
     }
 
     .followeer {
 
         .fan-username,
         .genre-name {
-            color: @white;
+            color: @foreground;
         }
     }
 
@@ -373,55 +377,51 @@ url-prefix("http://bandcamp.com") {
         &,
         &.following,
         &-inactive {
-            background-color: @dark;
+            background-color: @current-line;
         }
     }
 
     .fan-bio .edit-profile>a {
-        background-color: @dark;
+        background-color: @current-line;
     }
 
     .fan-container .top.editing {
-        background-color: @darker;
-        border-bottom-color: @darker;
-    }
-
-    .fan-banner.empty.owner {
-        background-color: @black-200;
+        background-color: @background;
+        border-bottom-color: @background;
     }
 
     .collection-container.noreviewtrack .just-hint {
-        color: @dark;
+        color: @current-line;
     }
 
     /* Feed page */
     #stories-vm {
         .story-innards {
-            background-color: @dark;
+            background-color: @current-line;
 
             .story-body {
-                color: @white;
+                color: @foreground;
             }
 
             .story-footer {
-                background-color: @dark;
-                border-top-color: @dark;
+                background-color: @current-line;
+                border-top-color: @current-line;
             }
         }
     }
 
     /* Search page */
     #q {
-        background-color: @dark;
-        color: @white;
+        background-color: @current-line;
+        color: @foreground;
     }
 
     #search-filters {
         border-bottom-width: 1px;
 
         .filter-link--active {
-            color: @white;
-            border-bottom-color: @white;
+            color: @foreground;
+            border-bottom-color: @foreground;
         }
     }
 
@@ -436,26 +436,26 @@ url-prefix("http://bandcamp.com") {
 
             &,
             &:hover {
-                color: @white;
+                color: @foreground;
             }
         }
     }
 
     /* Purchaases page */
     h1 {
-        color: @white;
+        color: @foreground;
     }
 
     .merch-delay-note {
-        color: @dark;
+        color: @current-line;
     }
 
     .purchases-item {
-        background-color: @dark;
+        background-color: @current-line;
     }
 
     .dark-link {
-        color: @white;
+        color: @foreground;
     }
 
     /* Settings page */
@@ -463,7 +463,7 @@ url-prefix("http://bandcamp.com") {
 
         &,
         & h2 {
-            color: @white;
+            color: @foreground;
         }
     }
 
@@ -471,29 +471,29 @@ url-prefix("http://bandcamp.com") {
     form.settings select,
     form.settings textarea,
     form.settings .StripeElement {
-        background-color: @dark;
-        color: @white;
+        background-color: @current-line;
+        color: @foreground;
     }
 
     #settings-menubar li {
         &:hover {
-            background-color: @dark;
+            background-color: @current-line;
         }
 
         &.active {
-            background-color: @dark;
+            background-color: @current-line;
 
             &:hover {
-                background-color: @blue-600;
+                background-color: @blue-500;
             }
 
             &>a {
-                color: @white;
+                color: @foreground;
             }
         }
     }
 
     .message {
-        color: @dark;
+        color: @current-line;
     }
 }
