@@ -1,0 +1,404 @@
+/* ==UserStyle==
+@name           Dracula for Bandcamp.com
+@namespace      https://github.com/eros404
+@homepageURL    https://github.com/eros404/dracula-bandcamp
+@supportURL     https://github.com/eros404/dracula-bandcamp/issues
+@updateURL      https://github.com/eros404/dracula-bandcamp/raw/master/style.user.css
+@version        0.1.0
+@description    A dark mode for Bandcamp
+@author         Eros404
+@preprocessor   less
+@license        MIT
+==/UserStyle== */
+@-moz-document url-prefix("https://bandcamp.com"),
+url-prefix("http://bandcamp.com") {
+    body {
+        --dark: #343746;
+        --darker: #282A36;
+        --black-200: #5c6071;
+        --black-700: #e3e8ff;
+        --white: #f3f4fb;
+        --blue: #42A0BD;
+        background-color: var(--darker);
+        color: var(--white);
+    }
+
+    /* Menu */
+    #menubar-wrapper.header-rework-2018 .menubar-outer {
+        background-color: var(--dark);
+        color: var(--white);
+    }
+
+    .menubar-2018 {
+        background-color: var(--dark);
+
+        .hoverable:hover,
+        .hoverable:focus,
+        .notification-center-menubar-button a:focus {
+            background-color: var(--blue);
+        }
+    }
+
+    form.menubar-search {
+        input[type="text"] {
+            background-color: var(--darker);
+            color: var(--white);
+        }
+
+        ul {
+            background-color: var(--darker);
+        }
+
+        .search-autocomplete li:not(.results-see-all):not(.results-tags) {
+            &.result-item a>span {
+                color: var(--white);
+            }
+
+            a {
+                background-color: var(--darker);
+
+                &:hover {
+                    background-color: var(--dark);
+                }
+            }
+        }
+    }
+
+    body.search-active form.menubar-search.has-results ul.filter-list .filter-link.selected-filter {
+        color: var(--white);
+        border-bottom-color: var(--white);
+    }
+
+    /* Home page */
+    #collection-main>a:nth-child(1)>svg:nth-child(1)>use:nth-child(1),
+    #menubar-feed-icon,
+    #b,
+    #an,
+    #d,
+    #c,
+    #am,
+    #p {
+        fill: var(--white);
+    }
+
+    .notable,
+    .curated-shows,
+    .bcdaily,
+    .email-intake,
+    .discover,
+    .app-promo-desktop {
+        background-color: var(--darker);
+    }
+
+    .salesfeed .item-inner {
+        color: var(--white);
+
+        &:hover {
+            background-color: var(--dark);
+        }
+    }
+
+    .carousel-bcweekly-container-container {
+        background-color: var(--darker);
+    }
+
+    .notable-item {
+        background-color: var(--dark);
+    }
+
+    .item-title>a {
+        color: var(--white);
+    }
+
+    .item-collection-controls>li a {
+        color: var(--white);
+    }
+
+    .live-listing {
+        background-color: var(--dark);
+
+        .show-details {
+
+            .show-title,
+            .show-artist {
+                color: var(--white);
+            }
+        }
+    }
+
+    .show-time-container {
+
+        .show-date,
+        .show-time {
+            color: var(--white);
+        }
+    }
+
+    .bcdaily {
+        .bcdaily-story {
+            background-color: var(--dark);
+        }
+
+        &-title {
+            color: var(--white);
+        }
+    }
+
+    .aotd-large {
+        background-color: var(--dark);
+
+        .bcdaily-title,
+        .aotd-artist,
+        .bcdaily-blurb {
+            color: var(--white);
+        }
+    }
+
+    #email-intake-vm p {
+        color: var(--white);
+    }
+
+    .discover .section-title,
+    .spotlight .section-title,
+    .signups .section-title {
+        color: var(--white);
+    }
+
+    .section-title a {
+
+        &:active,
+        &.selected {
+            background-color: var(--blue);
+        }
+    }
+
+    .discover-item a {
+
+        &.item-title,
+        &.item-artist,
+        &.item-genre {
+            color: var(--white);
+        }
+    }
+
+    .discover-detail {
+        background-color: var(--dark);
+    }
+
+    .discover .detail-body a {
+        color: var(--white)
+    }
+
+    .inline_player .playbutton {
+        background-color: var(--dark);
+
+        &::after {
+            border-left-color: var(--white);
+        }
+
+        &.playing::after {
+            border-left-color: var(--white);
+            border-right-color: var(--white);
+        }
+    }
+
+    .item-page {
+        background: none;
+
+        &.selected {
+            color: var(--white);
+        }
+    }
+
+    #email-intake-vm input {
+        background-color: var(--dark);
+        color: var(--white);
+    }
+
+    /* Fan page */
+    #propOpenWrapper,
+    #pgBd {
+        background-color: var(--darker);
+    }
+
+    .fan-bio {
+        color: var(--white);
+    }
+
+    .grids {
+        color: inherit;
+
+        ol.tabs li.active {
+
+            &,
+            &:hover {
+                color: var(--white);
+                border-bottom-color: var(--white);
+            }
+        }
+
+        .search .search-box {
+            background-color: var(--dark);
+            color: var(--white);
+        }
+    }
+
+    select.fav-track,
+    #wishlist-visibility,
+    #following-genre-visibility {
+        background-color: var(--dark);
+        color: var(--white);
+        border: 1px solid #ccc;
+    }
+
+    .why-edit-box textarea {
+        background-color: var(--dark);
+        color: var(--white);
+        box-shadow: none;
+    }
+
+    #grid-tabs-sticky.fixed {
+        background-color: var(--darker);
+    }
+
+    .item-link {
+        color: var(--white);
+    }
+
+    .followeer {
+
+        .fan-username,
+        .genre-name {
+            color: var(--white);
+        }
+    }
+
+    .follow-unfollow {
+
+        &,
+        &.following,
+        &-inactive {
+            background-color: var(--dark);
+        }
+    }
+
+    .fan-bio .edit-profile>a {
+        background-color: var(--dark);
+    }
+
+    .fan-container .top.editing {
+        background-color: var(--darker);
+        border-bottom-color: var(--darker);
+    }
+
+    .fan-banner.empty.owner {
+        background-color: var(--black-200);
+    }
+
+    .collection-container.noreviewtrack .just-hint {
+        color: var(--dark);
+    }
+
+    /* Feed page */
+    #stories-vm {
+        .story-innards {
+            background-color: var(--dark);
+
+            .story-body {
+                color: var(--white);
+            }
+
+            .story-footer {
+                background-color: var(--dark);
+                border-top-color: var(--dark);
+            }
+        }
+    }
+
+    /* Search page */
+    #q {
+        background-color: var(--dark);
+        color: var(--white);
+    }
+
+    #search-filters {
+        border-bottom-width: 1px;
+
+        .filter-link--active {
+            color: var(--white);
+            border-bottom-color: var(--white);
+        }
+    }
+
+    .pager {
+
+        .nextprev,
+        .pagenum {
+            background-color: inherit;
+        }
+
+        .chosen {
+
+            &,
+            &:hover {
+                color: var(--white);
+            }
+        }
+    }
+
+    /* Purchaases page */
+    h1 {
+        color: var(--white);
+    }
+
+    .merch-delay-note {
+        color: var(--dark);
+    }
+
+    .purchases-item {
+        background-color: var(--dark);
+    }
+
+    .dark-link {
+        color: var(--white);
+    }
+
+    /* Settings page */
+    .pane {
+
+        &,
+        & h2 {
+            color: var(--white);
+        }
+    }
+
+    form.settings input,
+    form.settings select,
+    form.settings textarea,
+    form.settings .StripeElement {
+        background-color: var(--dark);
+        color: var(--white);
+    }
+
+    #settings-menubar li {
+        &:hover {
+            background-color: var(--dark);
+        }
+
+        &.active {
+            background-color: var(--dark);
+
+            &:hover {
+                background-color: var(--blue);
+            }
+
+            &>a {
+                color: var(--white);
+            }
+        }
+    }
+
+    .message {
+        color: var(--dark);
+    }
+}
