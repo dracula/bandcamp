@@ -4,7 +4,7 @@
 @homepageURL    https://github.com/eros404/dracula-bandcamp
 @supportURL     https://github.com/eros404/dracula-bandcamp/issues
 @updateURL      https://github.com/eros404/dracula-bandcamp/raw/main/style.user.css
-@version        0.1.4
+@version        0.1.5
 @description    A dark mode for Bandcamp
 @author         Eros404
 @preprocessor   less
@@ -24,10 +24,16 @@
 @blue-700: #d7befb;
 @blue-800: #e5d4fd;
 @blue-900: #f2e9fe;
+@red: #ff5555;
 
 .input() {
     background-color: @current-line;
     color: @foreground;
+}
+
+.input-select() {
+    .input();
+    border: 1px solid #ccc;
 }
 
 @-moz-document url-prefix("https://bandcamp.com"),
@@ -390,8 +396,7 @@ url-prefix("http://bandcamp.com") {
     select.fav-track,
     #wishlist-visibility,
     #following-genre-visibility {
-        .input();
-        border: 1px solid #ccc;
+        .input-select();
     }
 
     .why-edit-box textarea {
@@ -620,5 +625,44 @@ url-prefix("http://bandcamp.com") {
 
     .discover-go.bc-ui {
         background: none;
+    }
+
+    /* Cart checkout */
+    .content {
+        background-color: @background;
+
+        button.button-blue {
+            background-color: @blue-500;
+
+            &:hover {
+                background-color: @blue-700;
+            }
+        }
+    }
+
+    .checkout-order-vm .group {
+        background-color: @background;
+    }
+
+    .order-recap ul li {
+        background-color: @current-line;
+    }
+
+    #card_number,
+    #cvv,
+    #Ecom_BillTo_Postal_Name_First,
+    #Ecom_BillTo_Postal_Name_Last,
+    #Ecom_BillTo_Postal_PostalCode {
+        .input();
+    }
+
+    #Ecom_Payment_Card_ExpDate_Month,
+    #Ecom_Payment_Card_ExpDate_Year,
+    #Ecom_BillTo_Postal_CountryCode {
+        .input-select();
+    }
+
+    .postmodern-form .error-message {
+        color: @red;
     }
 }
