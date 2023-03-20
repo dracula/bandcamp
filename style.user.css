@@ -284,6 +284,10 @@ url-prefix("http://bandcamp.com") {
         .show-time {
             color: @foreground;
         }
+
+        .calendar-icon {
+            background: url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/icon_clock.svg");
+        }
     }
 
     .bcdaily {
