@@ -4,7 +4,7 @@
 @homepageURL    https://github.com/eros404/dracula-bandcamp
 @supportURL     https://github.com/eros404/dracula-bandcamp/issues
 @updateURL      https://github.com/eros404/dracula-bandcamp/raw/main/style.user.css
-@version        0.1.5
+@version        0.1.6
 @description    A dark mode for Bandcamp
 @author         Eros404
 @preprocessor   less
@@ -25,6 +25,9 @@
 @blue-800: #e5d4fd;
 @blue-900: #f2e9fe;
 @red: #ff5555;
+@comment: #6272a4;
+@orange: #ffb86c;
+@green: #50fa7b;
 
 .input() {
     background-color: @current-line;
@@ -34,6 +37,17 @@
 .input-select() {
     .input();
     border: 1px solid #ccc;
+}
+
+.button() {
+    background-color: @blue-500;
+    color: @foreground;
+    border-color: @blue-500;
+
+    &:hover {
+        background-color: @blue-700;
+        border-color: @blue-700;
+    }
 }
 
 @-moz-document url-prefix("https://bandcamp.com"),
@@ -125,13 +139,37 @@ url-prefix("http://bandcamp.com") {
     .pg-ft {
         background-color: @blue-300;
 
-        &-nav .lang-picker {
-            background-color: @blue-100;
+        &-nav {
+            color: @blue-100;
+
+            &.dimmed {
+
+                &,
+                a {
+                    color: @blue-100;
+                }
+            }
+
+            .lang-picker {
+                background-color: @blue-100;
+            }
+        }
+
+        a {
+            color: @foreground;
         }
     }
 
     #pgFt {
         background-color: @blue-100;
+
+        .dimmed {
+
+            &,
+            a {
+                color: @blue-100;
+            }
+        }
     }
 
     .lang-picker-content {
@@ -177,6 +215,10 @@ url-prefix("http://bandcamp.com") {
     .curated-shows .section-title,
     .tags .section-title {
         color: @blue-500;
+    }
+
+    .notable .item-genre {
+        color: @orange;
     }
 
     .genre-bar {
@@ -253,12 +295,20 @@ url-prefix("http://bandcamp.com") {
             color: @foreground;
         }
 
+        &-author {
+            color: @orange;
+        }
+
         .read-more {
             color: @blue-500;
         }
 
         .section-title a {
             color: @blue-500;
+        }
+
+        .story-type {
+            color: @green;
         }
     }
 
@@ -286,29 +336,44 @@ url-prefix("http://bandcamp.com") {
         color: @foreground;
     }
 
-    .section-title a {
+    .section-title {
+        &>em {
+            color: @comment;
+        }
 
-        &:active,
-        &.selected {
-            background-color: @blue-500;
+        a {
+            color: @comment;
+
+            &:active,
+            &.selected {
+                background-color: @blue-500;
+                color: @foreground;
+            }
         }
     }
 
-    .discover-item a {
+    .discover {
+        &-item {
+            .item-genre {
+                color: @orange;
+            }
 
-        &.item-title,
-        &.item-artist,
-        &.item-genre {
-            color: @foreground;
+            a {
+
+                &.item-title,
+                &.item-artist {
+                    color: @foreground;
+                }
+            }
         }
-    }
 
-    .discover-detail {
-        background-color: @current-line;
-    }
+        &-detail {
+            background-color: @current-line;
+        }
 
-    .discover .detail-body a {
-        color: @foreground
+        .detail-body a {
+            color: @foreground
+        }
     }
 
     .inline_player .playbutton {
@@ -362,6 +427,10 @@ url-prefix("http://bandcamp.com") {
         .share-items a {
             color: @blue-500;
         }
+
+        ol.info-items li {
+            color: @comment;
+        }
     }
 
     .grids {
@@ -387,6 +456,10 @@ url-prefix("http://bandcamp.com") {
         .search .search-box {
             .input();
         }
+
+        .hidden-links a {
+            color: @comment;
+        }
     }
 
     .collection-grid .collection-item-art-container .banner-inner {
@@ -404,8 +477,14 @@ url-prefix("http://bandcamp.com") {
         box-shadow: none;
     }
 
-    #grid-tabs-sticky.fixed {
-        background-color: @background;
+    #grid-tabs-sticky {
+        .missing-purchases-link {
+            color: @comment;
+        }
+
+        &.fixed {
+            background-color: @background;
+        }
     }
 
     .item-link {
@@ -421,6 +500,8 @@ url-prefix("http://bandcamp.com") {
     }
 
     .follow-unfollow {
+        border-color: @blue-500;
+        color: @blue-500;
 
         &,
         &.following,
@@ -429,8 +510,29 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
-    .fan-bio .edit-profile>a {
-        background-color: @current-line;
+    #follow-plus {
+        fill: @blue-500;
+    }
+
+    .fan-bio .edit {
+        &-profile>a {
+            background-color: @current-line;
+        }
+
+        &-buttons button.save {
+            background-color: @blue-500;
+        }
+
+        &-location,
+        &-website,
+        &-name,
+        &-blurb {
+
+            input,
+            textarea {
+                .input();
+            }
+        }
     }
 
     #fan-container {
@@ -454,6 +556,14 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
+    .collection-item-why {
+        color: @comment;
+    }
+
+    .hidden-items-header {
+        color: @foreground;
+    }
+
     .expand-container .show-more,
     .preference-container .open-prefs {
         background-color: @blue-500;
@@ -467,9 +577,14 @@ url-prefix("http://bandcamp.com") {
     #stories-vm {
         .story-innards {
             background-color: @current-line;
+            border-color: @blue-100;
 
             .story-body {
                 color: @foreground;
+
+                .fav-track-title {
+                    color: @green;
+                }
             }
 
             .story-footer {
@@ -479,23 +594,54 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
-    #new-releases-vm .more-releases,
-    #new-releases-vm .less-releases {
-        color: @blue-300;
+    #new-releases-vm {
+
+        .more-releases,
+        .less-releases {
+            .button();
+        }
+    }
+
+    #dash-container h2 {
+        color: inherit;
     }
 
     /* Search page */
     #q {
-        background-color: @current-line;
-        color: @foreground;
+        .input();
+    }
+
+    .searchbutton {
+        .button();
+    }
+
+    .block,
+    .result-info {
+        color: @comment;
+    }
+
+    .genre {
+        color: @orange;
+    }
+
+    .itemurl a {
+        color: @green;
     }
 
     #search-filters {
         border-bottom-width: 1px;
 
-        .filter-link--active {
-            color: @foreground;
-            border-bottom-color: @foreground;
+        .filter-link {
+            color: @blue-500;
+
+            &:hover {
+                border-color: @blue-500;
+            }
+
+            &--active {
+                color: @foreground;
+                border-bottom-color: @foreground;
+            }
         }
     }
 
@@ -597,9 +743,14 @@ url-prefix("http://bandcamp.com") {
         background: none;
     }
 
+    .item-format {
+        color: @comment;
+    }
+
     .download {
         .formats {
             background-color: @background;
+            color: @comment;
 
             li:hover {
                 background-color: @current-line;
@@ -627,6 +778,10 @@ url-prefix("http://bandcamp.com") {
         background: none;
     }
 
+    #hidden-items-container .show-hide {
+        color: @blue-500;
+    }
+
     /* Cart checkout */
     .content {
         background-color: @background;
@@ -644,8 +799,14 @@ url-prefix("http://bandcamp.com") {
         background-color: @background;
     }
 
-    .order-recap ul li {
-        background-color: @current-line;
+    .order-recap {
+        .item-description>span.detail {
+            color: @foreground;
+        }
+
+        ul li {
+            background-color: @current-line;
+        }
     }
 
     #card_number,
@@ -665,4 +826,22 @@ url-prefix("http://bandcamp.com") {
     .postmodern-form .error-message {
         color: @red;
     }
+
+    /* Tags / Artist Index */
+    .tags {
+        color: @foreground;
+
+        a {
+            color: @blue-500;
+        }
+
+        .showall {
+            .button();
+        }
+
+        .results_area .item a {
+            color: @blue-500;
+        }
+    }
+
 }
