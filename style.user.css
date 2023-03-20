@@ -278,6 +278,10 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
+    .bc-ui2 {
+        background: url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/_sprite-bc-ui2-20180131@2x.png") 0 0 no-repeat;
+    }
+
     .show-time-container {
 
         .show-date,
@@ -287,6 +291,10 @@ url-prefix("http://bandcamp.com") {
 
         .calendar-icon {
             background: url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/icon_clock.svg");
+        }
+
+        .clock-icon {
+            background: url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/clock-outline.svg");
         }
     }
 
@@ -377,6 +385,10 @@ url-prefix("http://bandcamp.com") {
 
         .detail-body a {
             color: @foreground
+        }
+
+        .filter-icon {
+            background: transparent url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/_sprite-filter-icons@2x.png") no-repeat 0 0;
         }
     }
 

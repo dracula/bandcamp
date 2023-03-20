@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/clock-outline</title>
+    <g id="Show-listing-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Show-listing---desktop-1440px---empty" transform="translate(-1033.000000, -499.000000)" stroke="#f8f8f2">
+            <g id="component/event-card/4-col" transform="translate(744.000000, 209.500000)">
+                <g id="icon/clock" transform="translate(289.000000, 289.000000)">
+                    <circle id="Oval" cx="6" cy="6.5" r="5.5"/>
+                    <polyline id="Path-5" points="6 2.52923584 6 7 9.03375244 7"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
