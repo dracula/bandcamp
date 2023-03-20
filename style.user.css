@@ -4,7 +4,7 @@
 @homepageURL    https://github.com/eros404/dracula-bandcamp
 @supportURL     https://github.com/eros404/dracula-bandcamp/issues
 @updateURL      https://github.com/eros404/dracula-bandcamp/raw/main/style.user.css
-@version        0.1.3
+@version        0.1.6
 @description    A dark mode for Bandcamp
 @author         Eros404
 @preprocessor   less
@@ -24,6 +24,31 @@
 @blue-700: #d7befb;
 @blue-800: #e5d4fd;
 @blue-900: #f2e9fe;
+@red: #ff5555;
+@comment: #6272a4;
+@orange: #ffb86c;
+@green: #50fa7b;
+
+.input() {
+    background-color: @current-line;
+    color: @foreground;
+}
+
+.input-select() {
+    .input();
+    border: 1px solid #ccc;
+}
+
+.button() {
+    background-color: @blue-500;
+    color: @foreground;
+    border-color: @blue-500;
+
+    &:hover {
+        background-color: @blue-700;
+        border-color: @blue-700;
+    }
+}
 
 @-moz-document url-prefix("https://bandcamp.com"),
 url-prefix("http://bandcamp.com") {
@@ -34,7 +59,26 @@ url-prefix("http://bandcamp.com") {
         color: @foreground;
     }
 
+    /* General */
+    a,
+    .pseudoLink,
+    button {
+        color: @blue-500;
+    }
+
     /* Menu */
+    #collection-main>a:nth-child(1)>svg:nth-child(1)>use:nth-child(1),
+    #menubar-feed-icon,
+    #b,
+    #an,
+    #d,
+    #c,
+    #am,
+    #p,
+    #menubar-search-input-icon {
+        fill: @foreground;
+    }
+
     #menubar-wrapper.header-rework-2018 .menubar-outer {
         background-color: @background;
         color: @foreground;
@@ -48,12 +92,15 @@ url-prefix("http://bandcamp.com") {
         .notification-center-menubar-button a:focus {
             background-color: @blue-500;
         }
+
+        .svg-icon {
+            fill: @foreground;
+        }
     }
 
     form.menubar-search {
         input[type="text"] {
-            background-color: @current-line;
-            color: @foreground;
+            .input();
         }
 
         ul {
@@ -92,8 +139,36 @@ url-prefix("http://bandcamp.com") {
     .pg-ft {
         background-color: @blue-300;
 
-        &-nav .lang-picker {
-            background-color: @blue-100;
+        &-nav {
+            color: @blue-100;
+
+            &.dimmed {
+
+                &,
+                a {
+                    color: @blue-100;
+                }
+            }
+
+            .lang-picker {
+                background-color: @blue-100;
+            }
+        }
+
+        a {
+            color: @foreground;
+        }
+    }
+
+    #pgFt {
+        background-color: @blue-100;
+
+        .dimmed {
+
+            &,
+            a {
+                color: @blue-100;
+            }
         }
     }
 
@@ -105,19 +180,15 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
-    /* Home page */
-    #collection-main>a:nth-child(1)>svg:nth-child(1)>use:nth-child(1),
-    #menubar-feed-icon,
-    #b,
-    #an,
-    #d,
-    #c,
-    #am,
-    #p,
-    #menubar-search-input-icon {
-        fill: @foreground;
+    /* Player */
+    .carousel-player {
+
+        .item-collection-controls {
+            color: @blue-500;
+        }
     }
 
+    /* Home page */
     #rhomboid,
     .stepper .icon,
     .stepper-bcdaily .icon {
@@ -144,6 +215,10 @@ url-prefix("http://bandcamp.com") {
     .curated-shows .section-title,
     .tags .section-title {
         color: @blue-500;
+    }
+
+    .notable .item-genre {
+        color: @orange;
     }
 
     .genre-bar {
@@ -220,12 +295,20 @@ url-prefix("http://bandcamp.com") {
             color: @foreground;
         }
 
+        &-author {
+            color: @orange;
+        }
+
         .read-more {
             color: @blue-500;
         }
 
         .section-title a {
             color: @blue-500;
+        }
+
+        .story-type {
+            color: @green;
         }
     }
 
@@ -253,29 +336,44 @@ url-prefix("http://bandcamp.com") {
         color: @foreground;
     }
 
-    .section-title a {
+    .section-title {
+        &>em {
+            color: @comment;
+        }
 
-        &:active,
-        &.selected {
-            background-color: @blue-500;
+        a {
+            color: @comment;
+
+            &:active,
+            &.selected {
+                background-color: @blue-500;
+                color: @foreground;
+            }
         }
     }
 
-    .discover-item a {
+    .discover {
+        &-item {
+            .item-genre {
+                color: @orange;
+            }
 
-        &.item-title,
-        &.item-artist,
-        &.item-genre {
-            color: @foreground;
+            a {
+
+                &.item-title,
+                &.item-artist {
+                    color: @foreground;
+                }
+            }
         }
-    }
 
-    .discover-detail {
-        background-color: @current-line;
-    }
+        &-detail {
+            background-color: @current-line;
+        }
 
-    .discover .detail-body a {
-        color: @foreground
+        .detail-body a {
+            color: @foreground
+        }
     }
 
     .inline_player .playbutton {
@@ -301,8 +399,7 @@ url-prefix("http://bandcamp.com") {
     }
 
     #email-intake-vm input {
-        background-color: @current-line;
-        color: @foreground;
+        .input();
     }
 
     .scroller-prev,
@@ -315,6 +412,10 @@ url-prefix("http://bandcamp.com") {
     }
 
     /* Fan page */
+    #share-profile {
+        fill: @blue-500;
+    }
+
     #propOpenWrapper,
     #pgBd {
         background-color: @background;
@@ -322,42 +423,68 @@ url-prefix("http://bandcamp.com") {
 
     .fan-bio {
         color: @foreground;
+
+        .share-items a {
+            color: @blue-500;
+        }
+
+        ol.info-items li {
+            color: @comment;
+        }
     }
 
     .grids {
         color: inherit;
 
-        ol.tabs li.active {
+        ol.tabs li {
+            color: @blue-500;
 
-            &,
             &:hover {
-                color: @foreground;
-                border-bottom-color: @foreground;
+                border-bottom-color: @blue-500;
+            }
+
+            &.active {
+
+                &,
+                &:hover {
+                    color: @foreground;
+                    border-bottom-color: @foreground;
+                }
             }
         }
 
         .search .search-box {
-            background-color: @current-line;
-            color: @foreground;
+            .input();
         }
+
+        .hidden-links a {
+            color: @comment;
+        }
+    }
+
+    .collection-grid .collection-item-art-container .banner-inner {
+        background-color: @blue-500;
     }
 
     select.fav-track,
     #wishlist-visibility,
     #following-genre-visibility {
-        background-color: @current-line;
-        color: @foreground;
-        border: 1px solid #ccc;
+        .input-select();
     }
 
     .why-edit-box textarea {
-        background-color: @current-line;
-        color: @foreground;
+        .input();
         box-shadow: none;
     }
 
-    #grid-tabs-sticky.fixed {
-        background-color: @background;
+    #grid-tabs-sticky {
+        .missing-purchases-link {
+            color: @comment;
+        }
+
+        &.fixed {
+            background-color: @background;
+        }
     }
 
     .item-link {
@@ -373,6 +500,8 @@ url-prefix("http://bandcamp.com") {
     }
 
     .follow-unfollow {
+        border-color: @blue-500;
+        color: @blue-500;
 
         &,
         &.following,
@@ -381,13 +510,63 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
-    .fan-bio .edit-profile>a {
-        background-color: @current-line;
+    #follow-plus {
+        fill: @blue-500;
     }
 
-    .fan-container .top.editing {
-        background-color: @background;
-        border-bottom-color: @background;
+    .fan-bio .edit {
+        &-profile>a {
+            background-color: @current-line;
+        }
+
+        &-buttons button.save {
+            background-color: @blue-500;
+        }
+
+        &-location,
+        &-website,
+        &-name,
+        &-blurb {
+
+            input,
+            textarea {
+                .input();
+            }
+        }
+    }
+
+    #fan-container {
+        &.mine .collected-by a.item-link {
+            color: @blue-500;
+        }
+
+        .top.editing {
+            background-color: @background;
+            border-bottom-color: @background;
+        }
+    }
+
+    .item-save-buttons {
+        .save-button {
+            background-color: @blue-500;
+        }
+
+        .cancel {
+            color: @blue-500;
+        }
+    }
+
+    .collection-item-why {
+        color: @comment;
+    }
+
+    .hidden-items-header {
+        color: @foreground;
+    }
+
+    .expand-container .show-more,
+    .preference-container .open-prefs {
+        background-color: @blue-500;
     }
 
     .collection-container.noreviewtrack .just-hint {
@@ -398,9 +577,14 @@ url-prefix("http://bandcamp.com") {
     #stories-vm {
         .story-innards {
             background-color: @current-line;
+            border-color: @blue-100;
 
             .story-body {
                 color: @foreground;
+
+                .fav-track-title {
+                    color: @green;
+                }
             }
 
             .story-footer {
@@ -410,18 +594,54 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
+    #new-releases-vm {
+
+        .more-releases,
+        .less-releases {
+            .button();
+        }
+    }
+
+    #dash-container h2 {
+        color: inherit;
+    }
+
     /* Search page */
     #q {
-        background-color: @current-line;
-        color: @foreground;
+        .input();
+    }
+
+    .searchbutton {
+        .button();
+    }
+
+    .block,
+    .result-info {
+        color: @comment;
+    }
+
+    .genre {
+        color: @orange;
+    }
+
+    .itemurl a {
+        color: @green;
     }
 
     #search-filters {
         border-bottom-width: 1px;
 
-        .filter-link--active {
-            color: @foreground;
-            border-bottom-color: @foreground;
+        .filter-link {
+            color: @blue-500;
+
+            &:hover {
+                border-color: @blue-500;
+            }
+
+            &--active {
+                color: @foreground;
+                border-bottom-color: @foreground;
+            }
         }
     }
 
@@ -441,13 +661,14 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
-    /* Purchaases page */
+    /* Purchases page */
     h1 {
         color: @foreground;
     }
 
     .merch-delay-note {
         color: @current-line;
+        background-color: @blue-900;
     }
 
     .purchases-item {
@@ -456,6 +677,10 @@ url-prefix("http://bandcamp.com") {
 
     .dark-link {
         color: @foreground;
+    }
+
+    .show-more .view-all-button {
+        background-color: @blue-500;
     }
 
     /* Settings page */
@@ -467,21 +692,33 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
-    form.settings input,
-    form.settings select,
-    form.settings textarea,
-    form.settings .StripeElement {
-        background-color: @current-line;
-        color: @foreground;
+    form.settings {
+
+        input,
+        select,
+        textarea,
+        .StripeElement {
+            .input();
+        }
+
+        input[type="submit"] {
+            background-color: @blue-500;
+            border-color: @blue-500;
+        }
     }
 
     #settings-menubar li {
+        &>a {
+            color: @blue-300;
+        }
+
         &:hover {
             background-color: @current-line;
         }
 
         &.active {
             background-color: @current-line;
+            border-left-color: @blue-500;
 
             &:hover {
                 background-color: @blue-500;
@@ -496,4 +733,115 @@ url-prefix("http://bandcamp.com") {
     .message {
         color: @current-line;
     }
+
+    /* Download */
+    #pgBd {
+        color: @foreground;
+    }
+
+    .download-bottom-area {
+        background: none;
+    }
+
+    .item-format {
+        color: @comment;
+    }
+
+    .download {
+        .formats {
+            background-color: @background;
+            color: @comment;
+
+            li:hover {
+                background-color: @current-line;
+            }
+
+            .description {
+                color: @blue-500;
+
+                &.selected {
+                    color: @blue-300;
+                }
+            }
+        }
+
+        .formats-container {
+            background-color: @background;
+        }
+    }
+
+    #format-dropdown-selected {
+        fill: @blue-300;
+    }
+
+    .discover-go.bc-ui {
+        background: none;
+    }
+
+    #hidden-items-container .show-hide {
+        color: @blue-500;
+    }
+
+    /* Cart checkout */
+    .content {
+        background-color: @background;
+
+        button.button-blue {
+            background-color: @blue-500;
+
+            &:hover {
+                background-color: @blue-700;
+            }
+        }
+    }
+
+    .checkout-order-vm .group {
+        background-color: @background;
+    }
+
+    .order-recap {
+        .item-description>span.detail {
+            color: @foreground;
+        }
+
+        ul li {
+            background-color: @current-line;
+        }
+    }
+
+    #card_number,
+    #cvv,
+    #Ecom_BillTo_Postal_Name_First,
+    #Ecom_BillTo_Postal_Name_Last,
+    #Ecom_BillTo_Postal_PostalCode {
+        .input();
+    }
+
+    #Ecom_Payment_Card_ExpDate_Month,
+    #Ecom_Payment_Card_ExpDate_Year,
+    #Ecom_BillTo_Postal_CountryCode {
+        .input-select();
+    }
+
+    .postmodern-form .error-message {
+        color: @red;
+    }
+
+    /* Tags / Artist Index */
+    .tags {
+        color: @foreground;
+
+        a {
+            color: @blue-500;
+        }
+
+        .showall {
+            .button();
+        }
+
+        .results_area .item a {
+            color: @blue-500;
+        }
+    }
+
 }
