@@ -4,7 +4,7 @@
 @homepageURL    https://github.com/eros404/dracula-bandcamp
 @supportURL     https://github.com/eros404/dracula-bandcamp/issues
 @updateURL      https://github.com/eros404/dracula-bandcamp/raw/main/style.user.css
-@version        0.1.7
+@version        0.1.8
 @description    A dark mode for Bandcamp
 @author         Eros404
 @preprocessor   less
@@ -64,6 +64,14 @@ url-prefix("http://bandcamp.com") {
     .pseudoLink,
     button {
         color: @blue-500;
+    }
+
+    .bc-ui2 {
+        background-image: url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/_sprite-bc-ui2-20180131@2x.png");
+    }
+
+    .bc-ui {
+        background-image: url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/_sprite-bc-ui-20170921.png");
     }
 
     /* Menu */
@@ -286,10 +294,6 @@ url-prefix("http://bandcamp.com") {
                 color: @foreground;
             }
         }
-    }
-
-    .bc-ui2 {
-        background-image: url("https://raw.githubusercontent.com/eros404/dracula-bandcamp/main/assets/_sprite-bc-ui2-20180131@2x.png");
     }
 
     .show-time-container {
@@ -618,6 +622,14 @@ url-prefix("http://bandcamp.com") {
                 border-top-color: @current-line;
             }
         }
+
+        .story-title {
+
+            .fan-name,
+            .artist-name {
+                color: @orange;
+            }
+        }
     }
 
     #new-releases-vm {
@@ -675,7 +687,7 @@ url-prefix("http://bandcamp.com") {
 
         .nextprev,
         .pagenum {
-            background-color: inherit;
+            background-color: @blue-500;
         }
 
         .chosen {
