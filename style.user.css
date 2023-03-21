@@ -272,6 +272,16 @@ url-prefix("http://bandcamp.com") {
         background-color: @background;
     }
 
+    .bcweekly-player>.col+.col {
+        background-color: @background;
+    }
+
+    .bcweekly-links-1>a,
+    .bcweekly-links-2>a,
+    .bcweekly-links-3>a {
+        color: @blue-500;
+    }
+
     .notable-item {
         background-color: @current-line;
     }
@@ -596,7 +606,7 @@ url-prefix("http://bandcamp.com") {
 
     .expand-container .show-more,
     .preference-container .open-prefs {
-        background-color: @blue-500;
+        .button();
     }
 
     .collection-container.noreviewtrack .just-hint {
@@ -688,6 +698,7 @@ url-prefix("http://bandcamp.com") {
         .nextprev,
         .pagenum {
             color: @blue-500;
+            background-color: inherit;
         }
 
         .chosen {
