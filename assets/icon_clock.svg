@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="12px" height="11px" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>icon/clock</title>
-    <g id="Show-listing-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Show-listing---desktop-1440px---empty" transform="translate(-1033.000000, -482.000000)" stroke="#f8f8f2" stroke-width="0.899999976">
-            <g id="component/event-card/4-col" transform="translate(744.000000, 209.500000)">
-                <g id="Group" transform="translate(289.000000, 272.000000)">
-                    <rect id="Rectangle" x="0.449999988" y="2.64817585" width="10.7307689" height="8.35714264" rx="1.79999995"/>
-                    <line x1="2.90769223" y1="0.655318761" x2="2.90769223" y2="3.74103296" id="Path"/>
-                    <line x1="8.72307669" y1="0.655318761" x2="8.72307669" y2="3.74103296" id="Path"/>
-                    <line x1="0.830769209" y1="5.66960434" x2="11.6307689" y2="5.66960434" id="Path-4"/>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="11" version="1.1" viewBox="0 0 12 11"><title>icon/clock</title><g id="Show-listing-page" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="Show-listing---desktop-1440px---empty" stroke="#f8f8f2" stroke-width=".9" transform="translate(-1033.000000, -482.000000)"><g id="component/event-card/4-col" transform="translate(744.000000, 209.500000)"><g id="Group" transform="translate(289.000000, 272.000000)"><rect id="Rectangle" width="10.731" height="8.357" x=".45" y="2.648" rx="1.8"/><line id="Path" x1="2.908" x2="2.908" y1=".655" y2="3.741"/><line id="Path" x1="8.723" x2="8.723" y1=".655" y2="3.741"/><line id="Path-4" x1=".831" x2="11.631" y1="5.67" y2="5.67"/></g></g></g></g></svg>
