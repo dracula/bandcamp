@@ -14,14 +14,19 @@
 @background: hsl(230, 15%, 15%);
 @current-line: hsl(230, 15%, 30%);
 @foreground: hsl(60, 30%, 96%);
-@blue-100: hsl(250, 100%, 55%);
-@blue-300: hsl(250, 100%, 65%);
-@blue-500: hsl(250, 100%, 75%);
-@blue-700: hsl(250, 100%, 85%);
-@red: hsl(10, 100%, 75%);
+@blue-000: hsl(250, 85%, 50%);
+@blue-100: hsl(250, 85%, 55%);
+@blue-200: hsl(250, 85%, 60%);
+@blue-300: hsl(250, 85%, 65%);
+@blue-400: hsl(250, 85%, 70%);
+@blue-500: hsl(250, 85%, 75%);
+@blue-600: hsl(250, 85%, 80%);
+@blue-700: hsl(250, 85%, 85%);
+@red-darker: hsl(10, 85%, 65%);
+@red: hsl(10, 85%, 75%);
 @comment: hsl(230, 15%, 70%);
-@orange: hsl(35, 100%, 75%);
-@green: hsl(115, 100%, 75%);
+@orange: hsl(35, 85%, 75%);
+@green: hsl(115, 85%, 75%);
 
 .input() {
     background-color: @current-line;
@@ -39,8 +44,8 @@
     border-color: @blue-500;
 
     &:hover {
-        background-color: @blue-700;
-        border-color: @blue-700;
+        background-color: @blue-600;
+        border-color: @blue-600;
     }
 }
 
@@ -142,7 +147,7 @@ url-prefix("http://bandcamp.com") {
         background-color: @blue-300;
 
         &-nav {
-            color: @blue-100;
+            color: @red;
 
             &.dimmed {
 
@@ -235,15 +240,32 @@ url-prefix("http://bandcamp.com") {
         background-color: @blue-100 !important;
     }
 
+    .artistrec-bar {
+        background-color: @blue-100 !important;
+    }
+
+    .discover-bar.subgenres-bar {
+        background-color: @blue-400 !important;
+    }
+
+    .loc-bar {
+        background-color: @blue-200 !important;
+    }
+
+    .date-bar {
+        background-color: @blue-000 !important;
+    }
+
     .show-live-container {
         .badge.live {
-            background-color: @orange;
+            background-color: @red;
         }
 
         .orange-dot {
-            background-color: @red;
+            background-color: @red-darker;
         }
     }
+
 
     .notable,
     .curated-shows,
@@ -366,9 +388,6 @@ url-prefix("http://bandcamp.com") {
         color: @foreground;
     }
 
-    .discover-bar.subgenres-bar {
-        background-color: @red !important;
-    }
 
     .section-title {
         &>em {
