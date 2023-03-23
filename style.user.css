@@ -4,30 +4,29 @@
 @homepageURL    https://github.com/dracula/bandcamp
 @supportURL     https://github.com/dracula/bandcamp/issues
 @updateURL      https://github.com/dracula/bandcamp/raw/main/style.user.css
-@version        0.2.1
+@version        0.2.2
 @description    A dark mode for bandcamp.com
 @author         Eros404
 @preprocessor   less
 @license        MIT
 ==/UserStyle== */
 
-@background: #282A36;
-@current-line: #44475a;
-@foreground: #f8f8f2;
-@blue-050: #5f4a7d;
-@blue-100: #715895;
-@blue-200: #8467ae;
-@blue-300: #9776c7;
-@blue-400: #aa84e0;
-@blue-500: #bd93f9;
-@blue-600: #c49efa;
-@blue-700: #d7befb;
-@blue-800: #e5d4fd;
-@blue-900: #f2e9fe;
-@red: #ff5555;
-@comment: #6272a4;
-@orange: #ffb86c;
-@green: #50fa7b;
+@background: hsl(230, 15%, 15%);
+@current-line: hsl(230, 15%, 30%);
+@foreground: hsl(60, 30%, 96%);
+@blue-000: hsl(250, 85%, 50%);
+@blue-100: hsl(250, 85%, 55%);
+@blue-200: hsl(250, 85%, 60%);
+@blue-300: hsl(250, 85%, 65%);
+@blue-400: hsl(250, 85%, 70%);
+@blue-500: hsl(250, 85%, 75%);
+@blue-600: hsl(250, 85%, 80%);
+@blue-700: hsl(250, 85%, 85%);
+@red-darker: hsl(10, 85%, 65%);
+@red: hsl(10, 85%, 75%);
+@comment: hsl(230, 15%, 70%);
+@orange: hsl(35, 85%, 75%);
+@green: hsl(115, 85%, 75%);
 
 .input() {
     background-color: @current-line;
@@ -45,8 +44,8 @@
     border-color: @blue-500;
 
     &:hover {
-        background-color: @blue-700;
-        border-color: @blue-700;
+        background-color: @blue-600;
+        border-color: @blue-600;
     }
 }
 
@@ -148,7 +147,7 @@ url-prefix("http://bandcamp.com") {
         background-color: @blue-300;
 
         &-nav {
-            color: @blue-100;
+            color: @red;
 
             &.dimmed {
 
@@ -241,15 +240,32 @@ url-prefix("http://bandcamp.com") {
         background-color: @blue-100 !important;
     }
 
+    .artistrec-bar {
+        background-color: @blue-100 !important;
+    }
+
+    .discover-bar.subgenres-bar {
+        background-color: @blue-400 !important;
+    }
+
+    .loc-bar {
+        background-color: @blue-200 !important;
+    }
+
+    .date-bar {
+        background-color: @blue-000 !important;
+    }
+
     .show-live-container {
         .badge.live {
-            background-color: @orange;
+            background-color: @red;
         }
 
         .orange-dot {
-            background-color: @red;
+            background-color: @red-darker;
         }
     }
+
 
     .notable,
     .curated-shows,
@@ -371,6 +387,7 @@ url-prefix("http://bandcamp.com") {
     .signups .section-title {
         color: @foreground;
     }
+
 
     .section-title {
         &>em {
@@ -717,7 +734,7 @@ url-prefix("http://bandcamp.com") {
 
     .merch-delay-note {
         color: @current-line;
-        background-color: @blue-900;
+        background-color: @foreground;
     }
 
     .purchases-item {
@@ -758,7 +775,7 @@ url-prefix("http://bandcamp.com") {
 
     #settings-menubar li {
         &>a {
-            color: @blue-300;
+            color: @blue-500;
         }
 
         &:hover {
