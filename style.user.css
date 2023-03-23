@@ -11,23 +11,17 @@
 @license        MIT
 ==/UserStyle== */
 
-@background: #282A36;
-@current-line: #44475a;
-@foreground: #f8f8f2;
-@blue-050: #5f4a7d;
-@blue-100: #715895;
-@blue-200: #8467ae;
-@blue-300: #9776c7;
-@blue-400: #aa84e0;
-@blue-500: #bd93f9;
-@blue-600: #c49efa;
-@blue-700: #d7befb;
-@blue-800: #e5d4fd;
-@blue-900: #f2e9fe;
-@red: #ff5555;
-@comment: #6272a4;
-@orange: #ffb86c;
-@green: #50fa7b;
+@background: hsl(230, 15%, 15%);
+@current-line: hsl(230, 15%, 30%);
+@foreground: hsl(60, 30%, 96%);
+@blue-100: hsl(250, 100%, 55%);
+@blue-300: hsl(250, 100%, 65%);
+@blue-500: hsl(250, 100%, 75%);
+@blue-700: hsl(250, 100%, 85%);
+@red: hsl(10, 100%, 75%);
+@comment: hsl(230, 15%, 70%);
+@orange: hsl(35, 100%, 75%);
+@green: hsl(115, 100%, 75%);
 
 .input() {
     background-color: @current-line;
@@ -370,6 +364,10 @@ url-prefix("http://bandcamp.com") {
     .spotlight .section-title,
     .signups .section-title {
         color: @foreground;
+    }
+
+    .discover-bar.subgenres-bar {
+        background-color: @red !important;
     }
 
     .section-title {
@@ -717,7 +715,7 @@ url-prefix("http://bandcamp.com") {
 
     .merch-delay-note {
         color: @current-line;
-        background-color: @blue-900;
+        background-color: @foreground;
     }
 
     .purchases-item {
@@ -758,7 +756,7 @@ url-prefix("http://bandcamp.com") {
 
     #settings-menubar li {
         &>a {
-            color: @blue-300;
+            color: @blue-500;
         }
 
         &:hover {
