@@ -4,7 +4,7 @@
 @homepageURL    https://github.com/dracula/bandcamp
 @supportURL     https://github.com/dracula/bandcamp/issues
 @updateURL      https://github.com/dracula/bandcamp/raw/main/style.user.css
-@version        0.2.2
+@version        0.2.3
 @description    A dark mode for bandcamp.com
 @author         Eros404
 @preprocessor   less
@@ -27,10 +27,15 @@
 @comment: hsl(230, 15%, 70%);
 @orange: hsl(35, 85%, 75%);
 @green: hsl(115, 85%, 75%);
+@assets-path: "https://raw.githubusercontent.com/dracula/bandcamp/main/assets";
 
 .input() {
     background-color: @current-line;
     color: @foreground;
+
+    &::placeholder {
+        color: @comment;
+    }
 }
 
 .input-select() {
@@ -46,11 +51,14 @@
     &:hover {
         background-color: @blue-600;
         border-color: @blue-600;
+        color: @foreground;
     }
 }
 
 @-moz-document url-prefix("https://bandcamp.com"),
-url-prefix("http://bandcamp.com") {
+url-prefix("http://bandcamp.com"),
+url-prefix("https://daily.bandcamp.com"),
+url-prefix("http://daily.bandcamp.com") {
 
     /* Body */
     body {
@@ -66,11 +74,11 @@ url-prefix("http://bandcamp.com") {
     }
 
     .bc-ui2 {
-        background-image: url("https://raw.githubusercontent.com/dracula/bandcamp/main/assets/_sprite-bc-ui2-20180131@2x.png");
+        background-image: url("@{assets-path}/_sprite-bc-ui2-20180131@2x.png");
     }
 
     .bc-ui {
-        background-image: url("https://raw.githubusercontent.com/dracula/bandcamp/main/assets/_sprite-bc-ui-20170921.png");
+        background-image: url("@{assets-path}/_sprite-bc-ui-20170921.png");
     }
 
     /* Menu */
@@ -167,7 +175,8 @@ url-prefix("http://bandcamp.com") {
         }
     }
 
-    #pgFt {
+    #pgFt,
+    #pagefooter {
         background-color: @blue-100;
 
         .dimmed {
@@ -330,11 +339,11 @@ url-prefix("http://bandcamp.com") {
         }
 
         .calendar-icon {
-            background-image: url("https://raw.githubusercontent.com/dracula/bandcamp/main/assets/icon_clock.svg");
+            background-image: url("@{assets-path}/icon_clock.svg");
         }
 
         .clock-icon {
-            background-image: url("https://raw.githubusercontent.com/dracula/bandcamp/main/assets/icon_clock-outline.svg");
+            background-image: url("@{assets-path}/icon_clock-outline.svg");
         }
     }
 
@@ -429,7 +438,7 @@ url-prefix("http://bandcamp.com") {
         }
 
         .filter-icon {
-            background-image: url("https://raw.githubusercontent.com/dracula/bandcamp/main/assets/_sprite-filter-icons@2x.png");
+            background-image: url("@{assets-path}/_sprite-filter-icons@2x.png");
         }
     }
 
@@ -908,6 +917,140 @@ url-prefix("http://bandcamp.com") {
         .results_area .item a {
             color: @blue-500;
         }
+    }
+
+    /* Daily */
+    #s-daily {
+        #daily-nav {
+            a {
+                color: @foreground;
+
+                &:hover {
+                    color: @blue-500;
+                }
+            }
+
+            #daily-search-form {
+                background-color: @background;
+                color: @foreground;
+
+                #daily-search-field {
+                    .input();
+                }
+            }
+
+            &.view-all #daily-view-all {
+                background-color: @background;
+                color: @foreground;
+            }
+        }
+
+        h1 a {
+
+            &,
+            &:hover {
+                color: @foreground;
+            }
+        }
+
+        .list-article a {
+            color: @foreground;
+
+            &.franchise {
+                color: @green;
+            }
+        }
+
+        .article-info-text {
+            color: @comment;
+        }
+
+        a,
+        a:hover {
+            color: @blue-500;
+        }
+
+        a.pagination-link .back-text {
+            -webkit-text-stroke-color: @blue-500;
+        }
+
+        .footer-gradient {
+            background-image: none;
+            background-color: @background;
+        }
+
+        dailyfooter {
+            background-color: @background;
+
+            .bc-radio .card {
+                background-color: @background;
+            }
+        }
+
+        article {
+
+            &>mplayer-artist {
+
+                a:link,
+                a:visited {
+                    color: @foreground;
+                }
+
+                .artist-follow {
+                    .button();
+                }
+            }
+
+            &>mplayer-merch {
+
+                a:link,
+                a:visited {
+                    color: @foreground;
+                }
+            }
+
+            &>article-end {
+                background-image: url("@{assets-path}/bc-logo-end.png");
+            }
+
+            &>article-footer .genre a {
+                color: @orange;
+                border-color: @orange;
+
+                &:hover {
+                    color: @foreground;
+                    border-color: @foreground;
+                }
+            }
+
+            h3 a {
+
+                &,
+                &:visited {
+                    color: @foreground;
+                }
+            }
+
+            hr {
+                background-image: url("@{assets-path}/section-break.svg");
+            }
+        }
+
+        mplayer-inner {
+            background-color: @foreground;
+
+            .progress-bar-played {
+                background-color: @blue-500;
+            }
+        }
+
+        .mpwl.wishlisted-msg svg {
+            fill: @red;
+        }
+    }
+
+    #close-search-results {
+        fill: @foreground;
     }
 
 }
