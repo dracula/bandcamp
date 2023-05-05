@@ -4,7 +4,7 @@
 @homepageURL    https://github.com/dracula/bandcamp
 @supportURL     https://github.com/dracula/bandcamp/issues
 @updateURL      https://github.com/dracula/bandcamp/raw/main/style.user.css
-@version        0.2.4
+@version        0.2.5
 @description    A dark mode for bandcamp.com
 @author         Eros404
 @preprocessor   less
@@ -932,6 +932,10 @@ url-prefix("http://daily.bandcamp.com") {
     }
 
     /* Daily */
+    .mptrackinfo {
+        color: @background;
+    }
+
     #s-daily {
         #daily-nav {
             a {
@@ -1009,7 +1013,11 @@ url-prefix("http://daily.bandcamp.com") {
                 }
 
                 .artist-follow {
-                    .button();
+
+                    &,
+                    &.following {
+                        .button();
+                    }
                 }
             }
 
